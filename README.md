@@ -30,8 +30,8 @@ Example content of `eureka-client.properties`:
 #reference: https://github.com/Netflix/eureka/blob/master/eureka-server/src/main/resources/eureka-client.properties
 
 eureka.region=default
-eureka.name=session-manager
-eureka.vipAddress=session-manager
+eureka.name=example-app #this should be the unique name of the service
+eureka.vipAddress=example-app #this should be the unique name of the service and is what clients like OpenFeign will use to reference this app
 eureka.port=8181
 eureka.preferSameZone=false
 eureka.shouldUseDns=false
