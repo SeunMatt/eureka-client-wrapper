@@ -9,7 +9,7 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
     <name>${project.groupId}:${project.artifactId}</name>
-    <description>This is a wrapper for easily connecting non-spring Java projects into Spring Cloud Eureka Server</description>
+    <description>This is a wrapper for easily connecting non-spring-boot Java projects into Spring Cloud Eureka Server</description>
     <url>https://github.com/SeunMatt/mysql-backup4j</url>
 
     <licenses>
