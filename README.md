@@ -4,20 +4,24 @@ This is a wrapper for easily connecting non-spring-boot Java projects into Sprin
 
 Usage
 =====
-- Instantiate the EurekaClientService class `EurekaClientService eurekaClientService = new EurekaClientService();`
-- When your application is starting up register the instance with the configured Eureka Server thus:
+
+Dependency
+-----------
+To add this as a dependency:
+
+- Clone https://github.com/SeunMatt/eureka-client-wrapper.git
+- run `cd eureka-client-wrapper`
+- run `mvn clean install`
+
+Now, add the following dependency to your pom.xml:
 
 ```
-eurekaClientService.registerInstance();
+<dependency>
+    <groupId>com.smattme</groupId>
+    <artifactId>eureka-client-wrapper</artifactId>
+    <version>1.0.0</version>
+</dependency>
 ```
-
-- When your application is shutting down, de-register the instance from the configured Eureka Server:
-
-```
-eurekaClientService.deRegister();
-```
-
-NOTE: It's advisable to instantiate the `EurekaClientService` as a Bean that can be re-used system-wide
 
 Config
 ------
@@ -43,3 +47,21 @@ eureka.homePageUrl=http://localhost:8181/
 eureka.healthCheckUrl=http://localhost:8181/health
 eureka.statusPageUrl=http://localhost:8181/metrics
 ```
+
+Registering and De-Registering with a Eureka Server
+----------------------------------------------------
+
+- Instantiate the EurekaClientService class `EurekaClientService eurekaClientService = new EurekaClientService();`
+- When your application is starting up register the instance with the configured Eureka Server thus:
+
+```
+eurekaClientService.registerInstance();
+```
+
+- When your application is shutting down, de-register the instance from the configured Eureka Server:
+
+```
+eurekaClientService.deRegister();
+```
+
+NOTE: It's advisable to instantiate the `EurekaClientService` as a Bean that can be re-used system-wide
