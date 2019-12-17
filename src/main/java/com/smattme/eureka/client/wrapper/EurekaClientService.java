@@ -71,4 +71,30 @@ public class EurekaClientService {
         return eurekaClient;
     }
 
+
+    /**
+     * this will return the homepage URL of a remote service
+     * that's connected to the Eureka Server.
+     * This can be useful for making requests to the remote
+     * service without having to hard-code it's URL - which is volatile in nature
+     * If the service is not found or an exception occurred in the process
+     * it will return null
+     * @param serviceName the vipAddress of the remote service
+     * @return the homepage URL of the remote service or null if not found
+     */
+    public String getRemoteServiceHomepageURL(String serviceName) {
+
+        InstanceInfo nextServerInfo = null;
+
+        try {
+            nextServerInfo = eurekaClient.getNextServerFromEureka(serviceName, false);
+        } catch (Exception e) {
+            logger.error("Cannot get any instance of {} from eureka: " + e.getMessage(), serviceName);
+            return null;
+        }
+
+        return nextServerInfo.getHomePageUrl();
+    }
+
+
 }
