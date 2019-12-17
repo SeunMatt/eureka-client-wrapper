@@ -28,6 +28,11 @@
         </developer>
     </developers>
 
+    <scm>
+        <connection>scm:git:git://github.com/SeunMatt/eureka-client-wrapper.git</connection>
+        <developerConnection>scm:git:ssh://github.com:SeunMatt/eureka-client-wrapper.git</developerConnection>
+        <url>https://github.com/SeunMatt/eureka-client-wrapper/tree/master</url>
+    </scm>
 
     <dependencies>
         <dependency>

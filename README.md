@@ -65,3 +65,23 @@ eurekaClientService.deRegister();
 ```
 
 NOTE: It's advisable to instantiate the `EurekaClientService` as a Bean that can be re-used system-wide
+
+Getting the HomePage URL of a remote service
+===========================================
+One of the huge benefits of using a Discovery Server is never having to hard-code the URL of another service.
+
+Normative architecture dictate that each service, in a microservice environment, will have a unique name.
+
+This name is configured as the `eureka.vipAddress`  as mentioned above. Using the vipAddress name, we can get the instance information
+
+ of a remote service - including the homepage URL - which is a combination of the hostname and port.
+
+ This simply means each service only need to know the URL path and not necessarily the BASE URL of their counterparts.
+
+ To get the homepage URL:
+
+ ```
+ String serviceHomepageURL = eurekaClientService.getRemoteServiceHomepageURL(vipAddress);
+ Map response = restTemplate.getForObject(serviceHomepageURL + "path/in/remote/service", Map.class);
+ ```
+
